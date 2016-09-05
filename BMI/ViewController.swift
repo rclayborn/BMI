@@ -15,48 +15,48 @@ class ViewController: UIViewController {
           self.hideKeyboardWhenTappedAround()
     }
 
-    @IBOutlet var vyska: UITextField!
-    @IBOutlet var vaha: UITextField!
+    @IBOutlet var height: UITextField!
+    @IBOutlet var weight: UITextField!
     @IBOutlet weak var result: UITextView!
     
     //needs changed to english.
-    func vypocet_bmi(_ vaha: Float, vyska: Float) -> Float {
-        let vyska = vyska/100
-        let vypocet = ((vaha)/(vyska*vyska))
-        return vypocet
+    func calculate_bmi(_ weight: Float, height: Float) -> Float {
+        let height = height/100
+        let calculate = ((weight)/(height*height))
+        return calculate
     }
     
     @IBAction func vypocitat(_ sender: UIButton) {
         hideKeyboardWhenTappedAround()
-        if vaha.text != "" && vyska.text != "" {
-            let vypocet = vypocet_bmi((vaha.text! as NSString).floatValue, vyska: (vyska.text! as NSString).floatValue)
+        if weight.text != "" && height.text != "" {
+            let calculate = calculate_bmi((weight.text! as NSString).floatValue, height: (height.text! as NSString).floatValue)
             
-            if vypocet<=16.5 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + " - trpíte těžkou podvýživou"
+            if calculate<=16.5 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - trpíte těžkou podvýživou"
                 result.textColor = UIColor.blue
 
-            }else if vypocet<=18.5 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + " - suffer from malnutrition"
+            }else if calculate<=18.5 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - suffer from malnutrition"
                 result.textColor = UIColor.blue
                 
-            }else if vypocet<=25 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + "- ideal weight"
+            }else if calculate<=25 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + "- ideal weight"
                 result.textColor = UIColor.green
 
-            }else if vypocet<=30 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + " - overweight"
+            }else if calculate<=30 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - overweight"
                 result.textColor = UIColor.orange
                 
-            }else if vypocet<=35 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + " - have mild obesity"
+            }else if calculate<=35 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - have mild obesity"
                 result.textColor = UIColor.orange
                 
-            }else if vypocet<=40 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + " - suffers from moderate obesity"
+            }else if calculate<=40 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - suffers from moderate obesity"
                 result.textColor = UIColor.orange
                 
-            }else if vypocet>40 {
-                result.text = "BMI = " + String(format: "%.2f",vypocet) + " - suffer from morbid obesity"
+            }else if calculate>40 {
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - suffer from morbid obesity"
                 result.textColor = UIColor.red
             }
         }

@@ -77,9 +77,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="height" destination="DUc-t1-v5L" id="aYH-0z-na9"/>
                         <outlet property="result" destination="M5g-zi-Qel" id="XWF-xj-iwl"/>
-                        <outlet property="vaha" destination="c4E-EU-9Pe" id="BzX-ej-oRx"/>
-                        <outlet property="vyska" destination="DUc-t1-v5L" id="jC1-fH-z30"/>
+                        <outlet property="weight" destination="c4E-EU-9Pe" id="fop-P1-7bU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
