@@ -9,12 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var textLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
           self.hideKeyboardWhenTappedAround()
+            textLabel.text = "Man";
     }
 
+    @IBAction func segmentedControlAction(_ sender: AnyObject) {
+        
+        if(segmentedControl.selectedSegmentIndex == 0)
+        {
+            textLabel.text = "Man";
+        }
+        else if(segmentedControl.selectedSegmentIndex == 1)
+        {
+            textLabel.text = "Female";
+        }
+    }
+    
     @IBOutlet var height: UITextField!
     @IBOutlet var weight: UITextField!
     @IBOutlet weak var result: UITextView!
@@ -32,7 +48,7 @@ class ViewController: UIViewController {
             let calculate = calculate_bmi((weight.text! as NSString).floatValue, height: (height.text! as NSString).floatValue)
             
             if calculate<=16.5 {
-                result.text = "BMI = " + String(format: "%.2f",calculate) + " - trpíte těžkou podvýživou"
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - suffer from extreme malnutrition, Please eat a hamburger"
                 result.textColor = UIColor.blue
 
             }else if calculate<=18.5 {
@@ -56,7 +72,7 @@ class ViewController: UIViewController {
                 result.textColor = UIColor.orange
                 
             }else if calculate>40 {
-                result.text = "BMI = " + String(format: "%.2f",calculate) + " - suffer from morbid obesity"
+                result.text = "BMI = " + String(format: "%.2f",calculate) + " - suffer from morbid obesity, ride, ride, ride"
                 result.textColor = UIColor.red
             }
         }
